@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <title>b</title>
+	<link type="text/css" rel="stylesheet" href="b.css"></link>
+	<script type="text/javascript" src="not-jQuery.0.0.1.js"></script>
+	<script type="text/javascript" src="draw-plugin.js"></script>
+	<script type="text/javascript" src="b.js"></script>	
+</head>
+<body>
+	<canvas id="myCanvas" width="700px" height="1000px">
+		Your brower doesn't support html5 canvas tag.Please try higher version of it.
+	</canvas>
+	<div class="txt">
+		<div class="prompt">Please input html text:</div>
+		<div id="errormsg">Invalid format!</div>
+		<div class="sep"><textarea class="inputhtml" id="inputhtml">
+<b>This is a bold text.<i> This is a italic text 1.</i><i> This is a italic text 2.</i></b>
+
+<i> This is a italic text.</i>
+
+<p>New paragraph.<b>This is a bold text 1.</b> <b>This is a bold text 2.</b><i> This is a italic text 1.</i><i> This is a italic text 2.</i></p>
+
+<UL>
+
+    <li> Item1 with 1x indent</li>
+
+    <li> Item2 with 1x indent <u>underline</u></li>
+	<ul>
+		<li>Item1 with 2x indent</li>
+
+    <li> Item2 with 2x indent<u>underline</u></li>
+	</ul>
+
+</UL>
+<p>The indent is resumed!</p>
+
+		</textarea></div>
+		<div class="button">
+			<a href="javascript:void()" id="submit">submit</a>
+			<a href="javascript:void()" id="clear">clear</a>
+		</div>
+	</div>
+	<div id="dlg">
+		<div id="bg"></div>
+		<div class="dlg-content">
+			<h2 class="prompt">(Improved)wrote by mazhongbin(tel:15929937210)</h2>
+			<h3 class="prompt"><a href=mailto:mazhongbin@yeah.net>mazhongbin@yeah.net</a></h3>
+			<ul class="sep">
+				<li>Recursive parsing algorithm of html is abandoned,and substituted with loop parsing.This prevent programs from stack overflow,and absolutely support infinitely nested html tags.</li>
+				<li>The program render the html while parsing it.Combined with previous,this promote performance and experience.</li>
+				<li>Irregular html syntax supporting is improved,referenced the rendering behavior of chrome36.</li>
+				<li>Add support for indent of UL tag.</li>
+				<li>The program is tested on chrome36.</li>
+			</ul>
+			<div class="button">
+				<a href="javascript:void()" id="closedlg">close</a>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		q(document).ready(showinfo);
+		q("#submit").click(draw);
+		q("#closedlg").click(closedlg);
+		q("#clear").click(clearinput);
+		draw();
+	</script>
+</body>
